@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1> The Rock Band</h1>
+
+        <div id="rockband-accordion" class="accordion">
+            <!-- Voice -->
+            <div class="acc-item">
+                <h2 class="acc-header">
+                    <button id="trigger-voice" class="acc-trigger" aria-expanded="false" aria-controls="panel-voice">
+                        The Voice
+                    </button>
+                </h2>
+                <div id="panel-voice" class="acc-panel" role="region" aria-labelledby="trigger-voice" hidden>
+                    <p>The lead vocalist carries the melody and connects with the crowd. Think stage presence, pitch,
+                        and charisma.</p>
+                </div>
+            </div>
+
+            <!-- Guitar -->
+            <div class="acc-item">
+                <h2 class="acc-header">
+                    <button id="trigger-guitar" class="acc-trigger" aria-expanded="false" aria-controls="panel-guitar">
+                        The Guitar
+                    </button>
+                </h2>
+                <div id="panel-guitar" class="acc-panel" role="region" aria-labelledby="trigger-guitar" hidden>
+                    <p>From crunchy rhythm to soaring solos, the guitar shapes the band's harmonic color and energy.</p>
+                </div>
+            </div>
+
+            <!-- Bass -->
+            <div class="acc-item">
+                <h2 class="acc-header">
+                    <button id="trigger-bass" class="acc-trigger" aria-expanded="false" aria-controls="panel-bass">
+                        The Bass
+                    </button>
+                </h2>
+                <div id="panel-bass" class="acc-panel" role="region" aria-labelledby="trigger-bass" hidden>
+                    <p>The glue between drums and harmony. Bass locks the groove and makes heads nod.</p>
+                </div>
+            </div>
+
+            <!-- Drums -->
+            <div class="acc-item">
+                <h2 class="acc-header">
+                    <button id="trigger-drums" class="acc-trigger" aria-expanded="false" aria-controls="panel-drums">
+                        The Drums
+                    </button>
+                </h2>
+                <div id="panel-drums" class="acc-panel" role="region" aria-labelledby="trigger-drums" hidden>
+                    <p>Pocket, dynamics, and drive. The kit sets the tempo and ignites the crowd.</p>
+                </div>
+            </div>
+
+            <!-- Keys -->
+            <div class="acc-item">
+                <h2 class="acc-header">
+                    <button id="trigger-keys" class="acc-trigger" aria-expanded="false" aria-controls="panel-keys">
+                        The Keys
+                    </button>
+                </h2>
+                <div id="panel-keys" class="acc-panel" role="region" aria-labelledby="trigger-keys" hidden>
+                    <p>Pads, leads, organs—keys add texture, harmony layers, and mood to the mix.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+:root {
+  --bg: #0f0f12; /* dark background (site’s canvas) */
+  --card: #191a1f; /* slightly lighter shade */
+  --text: #e9e9ef; /* main text color (light on dark) */
+  --muted: #a9adba; /* secondary text (less contrast) */
+  --accent: #9055f7; /* highlight color */
+  --ring: #7c3aed; /* stronger accent */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh; /* desktop */
+  min-height: 100dvh; /* mobile */
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    "Helvetica Neue", Arial, "Noto Sans";
+  /* radial-gradient(shape size at position, start-color, ..., last-color) */
+  background: radial-gradient(
+        farthest-corner at 30% 0%,
+        #211230 0,
+        transparent 100%
+      )
+      no-repeat,
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 720px;
+  margin: 64px auto;
+  padding: 0 16px;
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  margin-bottom: 20px;
+}
+
+.accordion {
+  display: grid;
+  gap: 12px;
+}
+
+.acc-item {
+  background: var(--card);
+  border: 1px solid #23242b;
+  border-radius: 14px;
+  overflow: clip;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.acc-header {
+  margin: 0;
+}
+
+.acc-trigger {
+  appearance: none;
+  width: 100%;
+  text-align: left;
+  padding: 18px 20px;
+  /* background: <image> <position>/<size> <repeat>; */
+  background: linear-gradient(
+      0deg,
+      rgba(168, 85, 247, 0.1),
+      rgba(168, 85, 247, 0.1)
+    )
+    top/0% 0% no-repeat;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  transition: background-size 0.25s ease;
+}
+
+.acc-trigger:hover,
+.acc-trigger:focus-visible {
+  outline: none;
+  background-size: 100% 100%;
+}
+
+.acc-trigger[aria-expanded="true"] {
+  border-bottom: 1px solid #23242b;
+}
+
+.acc-trigger::after {
+  content: "+";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.acc-trigger[aria-expanded="true"]::after {
+  content: "-";
+  color: var(--accent);
+}
+
+.acc-panel {
+  padding: 16px;
+  color: var(--muted);
+  background: #13141a;
+}
+
+/* small screens */
+@media (max-width: 520px) {
+  .container {
+    margin: 40px auto;
+  }
+  .acc-trigger {
+    padding: 16px 18px;
+  }
+  .acc-panel {
+    padding: 14px 18px 18px;
+  }
+}
