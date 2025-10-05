@@ -16,7 +16,7 @@ This checklist also reflects the breadth of hands-on practice behind each projec
 
 ### 🔹 Accordions / Tabs
 
-- [ ] Accordion v1: Basic, single-open
+- [x] Accordion v1: Basic, single-open
 - [ ] Accordion v2: Multi-open + chevron animation
 - [ ] Accordion v3: Accessible (ARIA + keyboard)
 - [ ] Accordion v4: Responsive swap (tabs ↔ accordion)

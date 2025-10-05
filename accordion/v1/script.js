@@ -35,12 +35,16 @@ function closeAllPanels() {
 function closePanel(btn) {
   const panel = document.getElementById(btn.getAttribute("aria-controls"));
   btn.setAttribute("aria-expanded", "false");
+  const sym = btn.querySelector(".acc-symbol");
+  if (sym) sym.textContent = "+";
   panel.hidden = true;
 }
 
 function openPanel(btn) {
   const panel = document.getElementById(btn.getAttribute("aria-controls"));
   btn.setAttribute("aria-expanded", "true");
+  const sym = btn.querySelector(".acc-symbol");
+  if (sym) sym.textContent = "+";
   panel.hidden = false;
 }
 
