@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filters · Multi-open Accordion</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <main class="sheet">
+        <header class="sheet-bar">
+            <button class="link" type="button">Cancel</button>
+            <h1>Filters</h1>
+            <button id="resetBtn" class="link" type="button">Reset</button>
+        </header>
+
+        <form id="filters" class="accordion" novalidate>
+            <!-- Sorting -->
+            <section class="acc-item">
+                <h2 class="acc-header">
+                    <button id="trg-sort" class="acc-trigger" type="button" aria-expanded="false"
+                        aria-controls="p-sort">
+                        <span class="acc-label">Sorting</span>
+                        <span class="acc-summary" data-summary>Most popular</span>
+                        <span class="acc-icon" aria-hidden="true">›</span>
+                    </button>
+                </h2>
+                <div id="p-sort" class="acc-panel" role="region" aria-labelledby="trg-sort" hidden>
+                    <fieldset class="field-list">
+                        <label><input type="radio" name="sort" value="popular" checked> Most popular</label>
+                        <label><input type="radio" name="sort" value="new"> Newest</label>
+                        <label><input type="radio" name="sort" value="priceAsc"> Price: Low → High</label>
+                        <label><input type="radio" name="sort" value="priceDesc"> Price: High → Low</label>
+                    </fieldset>
+                </div>
+            </section>
+
+            <!-- Category -->
+            <section class="acc-item">
+                <h2 class="acc-header">
+                    <button id="trg-category" class="acc-trigger" type="button" aria-expanded="false"
+                        aria-controls="p-category">
+                        <span class="acc-label">Category</span>
+                        <span class="acc-summary" data-summary>All</span>
+                        <span class="acc-icon" aria-hidden="true">›</span>
+                    </button>
+                </h2>
+                <div id="p-category" class="acc-panel" role="region" aria-labelledby="trg-category" hidden>
+                    <fieldset class="field-list two-col">
+                        <label><input type="checkbox" name="category" value="Dresses"> Dresses</label>
+                        <label><input type="checkbox" name="category" value="Tops"> Tops</label>
+                        <label><input type="checkbox" name="category" value="Jeans"> Jeans</label>
+                        <label><input type="checkbox" name="category" value="Shoes"> Shoes</label>
+                    </fieldset>
+                </div>
+            </section>
+
+            <!-- Size -->
+            <section class="acc-item">
+                <h2 class="acc-header">
+                    <button id="trg-size" class="acc-trigger" type="button" aria-expanded="false"
+                        aria-controls="p-size">
+                        <span class="acc-label">Size</span>
+                        <span class="acc-summary" data-summary>Any</span>
+                        <span class="acc-icon" aria-hidden="true">›</span>
+                    </button>
+                </h2>
+                <div id="p-size" class="acc-panel" role="region" aria-labelledby="trg-size" hidden>
+                    <fieldset class="chip-group">
+                        <label><input type="checkbox" name="size" value="10">10</label>
+                        <label><input type="checkbox" name="size" value="12">12</label>
+                        <label><input type="checkbox" name="size" value="14">14</label>
+                        <label><input type="checkbox" name="size" value="16">16</label>
+                    </fieldset>
+                </div>
+            </section>
+
+            <!-- Colour -->
+            <section class="acc-item">
+                <h2 class="acc-header">
+                    <button id="trg-color" class="acc-trigger" type="button" aria-expanded="false"
+                        aria-controls="p-color">
+                        <span class="acc-label">Colour</span>
+                        <span class="acc-summary" data-summary>Any</span>
+                        <span class="acc-icon" aria-hidden="true">›</span>
+                    </button>
+                </h2>
+                <div id="p-color" class="acc-panel" role="region" aria-labelledby="trg-color" hidden>
+                    <fieldset class="chip-group">
+                        <label><input type="checkbox" name="color" value="Black">Black</label>
+                        <label><input type="checkbox" name="color" value="Red">Red</label>
+                        <label><input type="checkbox" name="color" value="Blue">Blue</label>
+                        <label><input type="checkbox" name="color" value="Green">Green</label>
+                    </fieldset>
+                </div>
+            </section>
+
+            <!-- Price -->
+            <section class="acc-item">
+                <h2 class="acc-header">
+                    <button id="trg-price" class="acc-trigger" type="button" aria-expanded="false"
+                        aria-controls="p-price">
+                        <span class="acc-label">Price</span>
+                        <span class="acc-summary" data-summary>Any</span>
+                        <span class="acc-icon" aria-hidden="true">›</span>
+                    </button>
+                </h2>
+                <div id="p-price" class="acc-panel" role="region" aria-labelledby="trg-price" hidden>
+                    <div class="range">
+                        <input type="range" id="minPrice" min="0" max="100" value="0">
+                        <input type="range" id="maxPrice" min="0" max="100" value="100">
+                        <div class="range-values">
+                            <output id="minOut" for="minPrice maxPrice">0</output>
+                            —
+                            <output id="maxOut" for="minPrice maxPrice">100</output>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Brand -->
+            <section class="acc-item">
+                <h2 class="acc-header">
+                    <button id="trg-brand" class="acc-trigger" type="button" aria-expanded="false"
+                        aria-controls="p-brand">
+                        <span class="acc-label">Brand</span>
+                        <span class="acc-summary" data-summary>Any</span>
+                        <span class="acc-icon" aria-hidden="true">›</span>
+                    </button>
+                </h2>
+                <div id="p-brand" class="acc-panel" role="region" aria-labelledby="trg-brand" hidden>
+                    <label class="inline">
+                        Search brand:
+                        <input type="search" id="brandSearch" placeholder="Search brand…">
+                    </label>
+                    <fieldset class="field-list scrollable">
+                        <label><input type="checkbox" name="brand" value="Diqlo"> Diqlo</label>
+                        <label><input type="checkbox" name="brand" value="G&amp;N"> G&amp;N</label>
+                        <label><input type="checkbox" name="brand" value="Noka"> Noka</label>
+                        <label><input type="checkbox" name="brand" value="Obibos"> Obibos</label>
+                        <label><input type="checkbox" name="brand" value="Osas"> Osas</label>
+                        <label><input type="checkbox" name="brand" value="Pomi"> Pomi</label>
+                        <label><input type="checkbox" name="brand" value="Zoro"> Zoro</label>
+                    </fieldset>
+                </div>
+            </section>
+
+            <!-- Material & Sale toggle -->
+            <section class="acc-item">
+                <h2 class="acc-header">
+                    <button id="trg-material" class="acc-trigger" type="button" aria-expanded="false"
+                        aria-controls="p-material">
+                        <span class="acc-label">Material</span>
+                        <span class="acc-summary" data-summary>Any</span>
+                        <span class="acc-icon" aria-hidden="true">›</span>
+                    </button>
+                </h2>
+                <div id="p-material" class="acc-panel" role="region" aria-labelledby="trg-material" hidden>
+                    <label class="inline">
+                        Search material:
+                        <input type="search" id="materialSearch" placeholder="Search material…">
+                    </label>
+                    <fieldset class="field-list scrollable">
+                        <label><input type="checkbox" name="material" value="Cotton"> Cotton</label>
+                        <label><input type="checkbox" name="material" value="Corduroy"> Corduroy</label>
+                        <label><input type="checkbox" name="material" value="Leather"> Leather</label>
+                        <label><input type="checkbox" name="material" value="Linen"> Linen</label>
+                        <label><input type="checkbox" name="material" value="Polyester"> Polyester</label>
+                        <label><input type="checkbox" name="material" value="Silk"> Silk</label>
+                        <label><input type="checkbox" name="material" value="Wool"> Wool</label>
+                    </fieldset>
+                    <label class="switch">
+                        <input type="checkbox" id="saleToggle">
+                        <span>Sale</span>
+                    </label>
+                </div>
+            </section>
+        </form>
+
+        <footer class="sheet-footer">
+            <button class="primary" type="submit" form="filters">Done</button>
+        </footer>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
